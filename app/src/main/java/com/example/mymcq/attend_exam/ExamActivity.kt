@@ -113,17 +113,19 @@ class ExamActivity : AppCompatActivity() {
 
 
         viewModel.question.observe(this, Observer {
-            viewModel.currentQuestion.set(it)
-            viewModel.optionSelect()
+            if(it!=null) {
+                viewModel.currentQuestion.set(it)
+                viewModel.optionSelect()
 
-            viewModel.tvOptionA.set(it.optionA)
-            viewModel.tvOptionB.set(it.optionB)
-            viewModel.tvOptionC.set(it.optionC)
-            viewModel.tvOptionD.set(it.optionD)
-            viewModel.tvQuestion.set(it.question)
-            viewModel.tvQuestionNumber.set(currentQuestion.toString())
+                viewModel.tvOptionA.set(it.optionA)
+                viewModel.tvOptionB.set(it.optionB)
+                viewModel.tvOptionC.set(it.optionC)
+                viewModel.tvOptionD.set(it.optionD)
+                viewModel.tvQuestion.set(it.question)
+                viewModel.tvQuestionNumber.set(currentQuestion.toString())
 
-            viewModel.getExamDetailsById(currentQuestion)
+                viewModel.getExamDetailsById(currentQuestion)
+            }
         })
     }
 
