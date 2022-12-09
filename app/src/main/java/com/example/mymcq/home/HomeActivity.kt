@@ -23,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
         viewModel= ViewModelProvider(this)[HomeViewModel::class.java]
         binding.viewModel=viewModel
 
-
+        viewModel.insertQuestions()
 
         buttonAttendExam.setOnClickListener{
 
